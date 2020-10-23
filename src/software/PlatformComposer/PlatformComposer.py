@@ -738,7 +738,7 @@ class Platform:
             CCdict["ClusterClockPeriods"] = self.ClusterClocks
 
             #ClusterClocksFile.write(json.dumps(self.ClusterClocks))
-            ClusterClocksFile.write(json.dumps(CCdict, sort_keys = False, indent = 4))
+            ClusterClocksFile.write(json.dumps(CCdict, sort_keys = False, indent = 4, cls=FloatJsonEncoder))
 
 
     def toJSON(self, SaveToFile = False, FileName = None):
