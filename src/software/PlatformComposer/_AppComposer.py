@@ -2,19 +2,10 @@
 import copy
 import json as JSON
 
-from decimal import Decimal
-
 
 # TODO: Make Unrelated flow exception
 # TODO: Merge identical Flows when they are added to a Thread
 # TODO: Extende Flow class to support many types of flows (not only CBR), such as Markov chains and Pareto chains
-
-class FloatJsonEncoder(JSON.JSONEncoder):
-
-    def default(self, obj):
-        if isinstance(obj, Decimal):
-            return float(obj)
-        return super(FloatJsonEncoder, self).default(obj)
 
 
 class Flow:
