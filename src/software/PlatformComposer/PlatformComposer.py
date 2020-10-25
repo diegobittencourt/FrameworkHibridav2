@@ -738,7 +738,7 @@ class Platform:
             CCdict["ClusterClockPeriods"] = self.ClusterClocks
 
             #ClusterClocksFile.write(json.dumps(self.ClusterClocks))
-            ClusterClocksFile.write(json.dumps(CCdict, sort_keys = False, indent = 4, cls=FloatJsonEncoder))
+            ClusterClocksFile.write(json.dumps(CCdict, sort_keys = False, indent = 4))
 
 
     def toJSON(self, SaveToFile = False, FileName = None):
@@ -827,7 +827,7 @@ class Platform:
         self.BaseNoC = [[None for y in range(self.BaseNoCDimensions[1])] for x in range(self.BaseNoCDimensions[0])]
         self.ReferenceClock = JSONDict["ReferenceClock"]  # In MHz
         self.StandaloneFlag = True if JSONDict["IsStandaloneBus"] or JSONDict["IsStandaloneCrossbar"] else False
-        self.BridgeBufferSize = JSON["BridgeBufferSize"]        
+        #self.BridgeBufferSize = JSONDict["BridgeBufferSize"]        
         
         self.Buses = []
         self.Crossbars = []
